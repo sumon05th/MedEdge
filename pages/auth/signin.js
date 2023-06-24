@@ -471,15 +471,7 @@ export default function SignIn({ csrfToken }) {
                                   onChange={(e) => setLastname(e.target.value)}
                                 />
                               </label>
-                              <label className="text-blue-400 ">
-                                Gender
-                                <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                  name="gender"
-                                  type="text"
-
-                                  onChange={(e) => setGender(e.target.value)}
-                                />
-                              </label>
+                              
                               
                               
                               <label className="text-blue-400 ">
@@ -490,26 +482,10 @@ export default function SignIn({ csrfToken }) {
                                   onChange={(e) => setLicense(e.target.value)}
                                 />
                               </label>
-                              <label className="text-blue-400 ">
-                                Specialist In
-                                <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                  name="speciality"
-                                  type="text"
-
-                                  onChange={(e) => setSpeciality(e.target.value)}
-                                />
-                              </label>
+                              
                              
                               
-                              <label className="text-blue-400 ">
-                                City
-                                <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                  name="city"
-                                  type="text"
-
-                                  onChange={(e) => setCity(e.target.value)}
-                                />
-                              </label>
+                           
                               <label className="text-blue-400 ">
                                 Phone Number
                                 <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"

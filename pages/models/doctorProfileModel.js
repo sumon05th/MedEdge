@@ -13,13 +13,12 @@ const profileSchema = new mongoose.Schema(
     gender:{
       type:String,
     },
-    doctorid: {
+    username: {
       type: String,
     },  
     speciality: { 
       type: String, 
     },
-
     age: {
       type: Number,
     },
@@ -27,12 +26,6 @@ const profileSchema = new mongoose.Schema(
       type: String,
     },
     phone: {
-      type: Number,
-    },
-    address: {
-      type: String,
-    },
-    pincode: {
       type: Number,
     },
     profilephoto: {

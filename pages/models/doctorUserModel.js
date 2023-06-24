@@ -10,24 +10,7 @@ const userSchema = new mongoose.Schema(
     lastname: {
       type: String,
     },
-    gender:{
-      type:String,
-    },
-    doctorid: {
-      type: String,
-    },
-    exprerience: {
-
-      type: Number,
-
-    },
-    age: {  
-      type: Number,
-    },
-    speciality: { 
-      type: String, 
-    },
-    currentworkplace: {
+    username: {
       type: String,
     },
     role: {

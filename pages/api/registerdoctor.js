@@ -12,15 +12,6 @@ export default async function handler(req, res) {
   const salt = await bcrypt.genSalt(10);
   // now we set user password to hashed password
   const hashpass = await bcrypt.hash(body.password, salt);
-  const user = new Users({
-    email: body.email,
-    firstname: body.firstname,
-    lastname: body.lastname,
-    phone: body.phone,
-    role: body.role,
-    password: hashpass,
-
-  });
   function createUserID(firstName, lastName, phoneNumber) {
     // Get the first two characters of the names and capitalize them
     const formattedFirstName = firstName.slice(0, 2).toUpperCase();
@@ -35,21 +26,31 @@ export default async function handler(req, res) {
   
     return userID;
   }
+  const user = new Users({
+    email: body.email,
+    firstname: body.firstname,
+    lastname: body.lastname,
+    phone: body.phone,
+    role: body.role,
+    username: createUserID(body.firstname, body.lastname, body.phone),
+    password: hashpass,
+
+  });
   
   const profile = new Doctorprofiles({
+    
     email: body.email,
     firstname: body.firstname,
     lastname: body.lastname,
     phone: body.phone,
     role: body.role,
     gender:"",
-    address: "",
-    speciality: "",
+    age: 0,
+    speciality: body.speciality,
     currentworkplace: "",
-    pincode: 0,
     profilephoto: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg",
-    experience: 1,
-    doctorid: createUserID(body.firstname, body.lastname, body.phone)
+    experience: 0,
+    username: createUserID(body.firstname, body.lastname, body.phone)
   });
   await user.save();
   await profile.save();

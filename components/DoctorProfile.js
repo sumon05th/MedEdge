@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
 import axios from "axios";
 import Router, { useRouter } from "next/router";
+import Image from "next/image";
 function Doctorprofile() {
   const router = useRouter();
   const query = router.query;
   const [profile, setProfile] = useState();
   const { data: session } = useSession();
   const emailt = session.user.email;
-
+  const [speciality, setSpeciality] = useState();
   const [age, setAge] = useState();
-  const [address, setAddress] = useState();
-  const [bloodgroup, setBloodgroup] = useState();
-  const [pincode, setPincode] = useState();
+  const [currentworkplace, setCurrentworkplace] = useState();
   const [gender, setGender] = useState();
   const [role, setrole] = useState();
+  const [experience, setExperience] = useState();
+  
 
 
   const fetchData = () => {
@@ -23,11 +24,11 @@ function Doctorprofile() {
       .then((response) => {
         setProfile(response.data)
         setAge(response.data.age)
-        setAddress(response.data.address)
-        setBloodgroup(response.data.bloodgroup)
-        setPincode(response.data.pincode)
+       setCurrentworkplace(response.data.currentworkplace)
+        setExperience(response.data.experience)
         setGender(response.data.gender)
         setrole(response.data.role)
+        setSpeciality(response.data.speciality)
       });
   }
   useEffect(() => {
@@ -41,19 +42,22 @@ function Doctorprofile() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, address, age, pincode, bloodgroup, gender }),
+      body: JSON.stringify({ email, age, gender ,experience,currentworkplace,speciality}),
     });
     Router.reload();
   };
 
 
   return (<div>
+    <Image src={profile?.profilephoto} alt="Picture of the author" width={200} height={200} />
     <div>{profile?.firstname}</div>
     <div>{profile?.lastname}</div>
     <div>{profile?.email}</div>
     <div>{profile?.phone}</div>
     <div>{profile?.role}</div>
-    <div>{profile?.doctorid}</div>
+    <div>{profile?.username}</div>
+
+    
     
 
     <label>
@@ -66,30 +70,30 @@ function Doctorprofile() {
       />
     </label>
     <label>
-      Pincode
+     Experience
       <input
-        name="pincode"
+        name="experience"     
         type="text"
-        value={pincode}
-        onChange={(e) => setPincode(e.target.value)}
+        value={experience}
+        onChange={(e) =>setExperience(e.target.value)}
       />
     </label>
     <label>
-      Address
+      Currentworkplace
       <input
-        name="address"
+        name="currentworkplace"
         type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
+        value={currentworkplace}
+        onChange={(e) => currentworkplace(e.target.value)}
       />
     </label>
     <label>
-      Blood Group
+      Speciality
       <input
-        name="bloodgroup"
+        name="speciality"
         type="text"
-        value={bloodgroup}
-        onChange={(e) => setBloodgroup(e.target.value)}
+        value={speciality}
+        onChange={(e) => setSpeciality(e.target.value)}
       />
     </label>
     <label>
