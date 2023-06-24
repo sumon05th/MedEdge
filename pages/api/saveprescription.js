@@ -1,20 +1,14 @@
-import Reports from "../models/reportSchema";
-import connectDB from "./auth/lib/connectDB";
-import Labprofile from "../models/labProfileModel";
+import Prescriptions from "../models/prescriptionSchema";
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    await connectDB();
     try {
-      const { username, imageUrl, labName } = req.body;
-      const profile = await Labprofile.findOne({
-        name: labName,
-      });
+      const { username, imageUrl, doctorName } = req.body;
+
       // Create a new patient document
-      const newPatient = new Reports({
+      const newPatient = new Prescriptions({
         username,
         imageUrl,
-        labAddress: profile.address || "default address",
-        labName,
+        doctorName,
       });
 
       // Save the patient document to the database

@@ -17,6 +17,7 @@ function PatientProfile() {
   const [gender, setGender] = useState();
   const [reports, setReports] = useState();
   const [username, setUsername] = useState();
+  const [prescriptions, setPrescriptions] = useState();
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getpatientprofile/?email=${emailt}`;
@@ -35,12 +36,23 @@ function PatientProfile() {
       setReports(response.data);
     });
   };
+  const fetchprescriptions = () => {
+    const url = `http://localhost:3000/api/getprescription/?username=${profile?.username}`;
+    return axios.get(url).then((response) => {
+      setPrescriptions(response.data);
+    });
+  };
   useEffect(() => {
     fetchData();
   }, []);
   useEffect(() => {
     fetchreports();
   }, [profile]);
+
+  useEffect(() => {
+    fetchprescriptions();
+  }, [profile]);
+
   const updateProfile = async (e) => {
     e.preventDefault();
     const email = session.user.email;
@@ -122,12 +134,27 @@ function PatientProfile() {
         Submit
       </button>
       {reports?.map((report) => (
-        <Image
-          src={report.imageUrl}
-          alt="Picture of the author"
-          width={200}
-          height={200}
-        />
+        <>
+          <Image
+            src={report.imageUrl}
+            alt="Picture of the author"
+            width={200}
+            height={200}
+          />
+          <p>{report.labName}</p>
+          <p>{report.labAddress}</p>
+        </>
+      ))}
+      {prescriptions?.map((prescription) => (
+        <>
+          <Image
+            src={prescription.imageUrl}
+            alt="Picture of the author"
+            width={200}
+            height={200}
+          />
+          <p>{prescription.doctorName}</p>
+        </>
       ))}
     </div>
   );

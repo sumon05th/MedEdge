@@ -3,6 +3,8 @@ const reportSchema = new mongoose.Schema(
   {
     username: String,
     imageUrl: String,
+    labName: String,
+    labAddress: String,
   },
   { timestamps: true }
 );

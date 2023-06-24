@@ -10,6 +10,7 @@ export default function report() {
       </div>
     );
   }
+  console.log(session.user);
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [image, setImage] = useState(null);
@@ -45,6 +46,7 @@ export default function report() {
     const patientData = {
       username,
       imageUrl,
+      labName: session.user.name,
     };
 
     const saveResponse = await fetch("/api/savereportdata", {
