@@ -15,23 +15,32 @@ function PatientProfile() {
   const [bloodgroup, setBloodgroup] = useState();
   const [pincode, setPincode] = useState();
   const [gender, setGender] = useState();
+  const [reports, setReports] = useState();
   const [username, setUsername] = useState();
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getpatientprofile/?email=${emailt}`;
-    return axios.get(url)
-      .then((response) => {
-        setProfile(response.data)
-        setAge(response.data.age)
-        setAddress(response.data.address)
-        setBloodgroup(response.data.bloodgroup)
-        setPincode(response.data.pincode)
-        setGender(response.data.gender)
-      });
-  }
+    return axios.get(url).then((response) => {
+      setProfile(response.data);
+      setAge(response.data.age);
+      setAddress(response.data.address);
+      setBloodgroup(response.data.bloodgroup);
+      setPincode(response.data.pincode);
+      setGender(response.data.gender);
+    });
+  };
+  const fetchreports = () => {
+    const url = `http://localhost:3000/api/getreport/?username=${profile?.username}`;
+    return axios.get(url).then((response) => {
+      setReports(response.data);
+    });
+  };
   useEffect(() => {
     fetchData();
   }, []);
+  useEffect(() => {
+    fetchreports();
+  }, [profile]);
   const updateProfile = async (e) => {
     e.preventDefault();
     const email = session.user.email;
@@ -40,66 +49,88 @@ function PatientProfile() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, address, age, pincode, bloodgroup, gender }),
+      body: JSON.stringify({
+        email,
+        address,
+        age,
+        pincode,
+        bloodgroup,
+        gender,
+      }),
     });
     Router.reload();
   };
-
-
-  return (<div>
-    <Image src={profile?.profilephoto} alt="Picture of the author" width={200} height={200} />
-    <div>{profile?.firstname}</div>
-    <div>{profile?.lastname}</div>
-    <div>{profile?.email}</div>
-    <div>{profile?.phone}</div>
-    <div>{profile?.username}</div>
-    <label>
-      Age
-      <input
-        name="age"
-        type="text"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
+  return (
+    <div>
+      <Image
+        src={profile?.profilephoto}
+        alt="Picture of the author"
+        width={200}
+        height={200}
       />
-    </label>
-    <label>
-      Pincode
-      <input
-        name="pincode"
-        type="text"
-        value={pincode}
-        onChange={(e) => setPincode(e.target.value)}
-      />
-    </label>
-    <label>
-      Address
-      <input
-        name="address"
-        type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-      />
-    </label>
-    <label>
-      Blood Group
-      <input
-        name="bloodgroup"
-        type="text"
-        value={bloodgroup}
-        onChange={(e) => setBloodgroup(e.target.value)}
-      />
-    </label>
-    <label>
-      Gender
-      <input
-        name="gender"
-        type="text"
-        value={gender}
-        onChange={(e) => setGender(e.target.value)}
-      />
-    </label>
-    <button type="submit" onClick={(e) => updateProfile(e)}>Submit</button>
-  </div>);
+      <div>{profile?.firstname}</div>
+      <div>{profile?.lastname}</div>
+      <div>{profile?.email}</div>
+      <div>{profile?.phone}</div>
+      <div>{profile?.username}</div>
+      <label>
+        Age
+        <input
+          name="age"
+          type="text"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </label>
+      <label>
+        Pincode
+        <input
+          name="pincode"
+          type="text"
+          value={pincode}
+          onChange={(e) => setPincode(e.target.value)}
+        />
+      </label>
+      <label>
+        Address
+        <input
+          name="address"
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+      </label>
+      <label>
+        Blood Group
+        <input
+          name="bloodgroup"
+          type="text"
+          value={bloodgroup}
+          onChange={(e) => setBloodgroup(e.target.value)}
+        />
+      </label>
+      <label>
+        Gender
+        <input
+          name="gender"
+          type="text"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        />
+      </label>
+      <button type="submit" onClick={(e) => updateProfile(e)}>
+        Submit
+      </button>
+      {reports?.map((report) => (
+        <Image
+          src={report.imageUrl}
+          alt="Picture of the author"
+          width={200}
+          height={200}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default PatientProfile;
