@@ -46,7 +46,7 @@ function PatientProfile() {
 
 
   return (<div>
-    <Image src={profile.profilephoto} alt="Picture of the author" width={200} height={200} />
+    <Image src={profile?.profilephoto} alt="Picture of the author" width={200} height={200} />
     <div>{profile?.firstname}</div>
     <div>{profile?.lastname}</div>
     <div>{profile?.email}</div>

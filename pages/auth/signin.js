@@ -16,7 +16,7 @@ export default function SignIn({ csrfToken }) {
   
   const [license, setLicense] = useState("");
   const [speciality, setSpeciality] = useState("");
-  
+  // const [profilephoto, setProfilephoto] = useState("");
   
   const [city, setCity] = useState("");
   const [type, setType] = useState("");

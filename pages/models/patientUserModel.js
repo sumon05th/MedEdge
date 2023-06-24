@@ -13,6 +13,9 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
     },
+    age: {  
+      type: Number,
+    },
     phone: {
       type: Number,
     },

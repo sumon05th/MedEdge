@@ -16,6 +16,9 @@ const profileSchema = new mongoose.Schema(
     phone: {
       type: Number,
     },
+    age: {  
+      type: Number,
+    },
     address: {
       type: String,
     },
