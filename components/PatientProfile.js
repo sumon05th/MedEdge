@@ -15,6 +15,7 @@ function PatientProfile() {
   const [bloodgroup, setBloodgroup] = useState();
   const [pincode, setPincode] = useState();
   const [gender, setGender] = useState();
+  const [username, setUsername] = useState();
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getpatientprofile/?email=${emailt}`;
@@ -51,6 +52,7 @@ function PatientProfile() {
     <div>{profile?.lastname}</div>
     <div>{profile?.email}</div>
     <div>{profile?.phone}</div>
+    <div>{profile?.username}</div>
     <label>
       Age
       <input

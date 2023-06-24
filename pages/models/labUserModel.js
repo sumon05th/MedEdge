@@ -10,10 +10,7 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
     },
-    labid: {  
-      type: String,
-    },
-    labtype: {
+    usename: {  
       type: String,
     },
     phone: {

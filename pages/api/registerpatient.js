@@ -12,12 +12,28 @@ export default async function handler(req, res) {
   const salt = await bcrypt.genSalt(10);
   // now we set user password to hashed password
   const hashpass = await bcrypt.hash(body.password, salt);
+  function createUserID(firstName, lastName, phoneNumber) {
+    // Get the first two characters of the names and capitalize them
+    const formattedFirstName = firstName.slice(0, 2).toUpperCase();
+    const formattedLastName = lastName.slice(0, 2).toUpperCase();
+  
+    // Get the last five digits of the phone number
+    const formattedPhoneNumber = phoneNumber.replace(/\D/g, '');
+    const lastFiveDigits = formattedPhoneNumber.slice(-5);
+  
+    // Concatenate formatted names and last five digits of phone number
+    const userID = "PAT"+formattedFirstName + formattedLastName + lastFiveDigits;
+  
+    return userID;
+  }
+
   const user = new Users({
     email: body.email,
     firstname: body.firstname,
     lastname: body.lastname,
     phone: body.phone,
     role: body.role,
+    username: createUserID(body.firstname, body.lastname, body.phone),
     password: hashpass,
   });
   const profile = new Patientprofiles({
@@ -32,6 +48,7 @@ export default async function handler(req, res) {
     gender: "",
     age: 0,
     bloodgroup: "",
+    username: createUserID(body.firstname, body.lastname, body.phone)
   });
   await user.save();
   await profile.save();

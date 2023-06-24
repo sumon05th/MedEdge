@@ -49,7 +49,7 @@ function LabProfile() {
     {/* <div>{profile?.lastname}</div> */}
     <div>{profile?.email}</div>
     <div>{profile?.phone}</div>
-    <div>{profile?.labId}</div>
+    <div>{profile?.username}</div>
     {/* <label>
       Age
       <input

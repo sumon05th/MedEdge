@@ -10,17 +10,9 @@ import {
 } from "@material-tailwind/react";
 export default function SignIn({ csrfToken }) {
   const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [gender, setGender] = useState("");
-  
+  const [lastname, setLastname] = useState(""); 
   
   const [license, setLicense] = useState("");
-  const [speciality, setSpeciality] = useState("");
-  // const [profilephoto, setProfilephoto] = useState("");
-  
-  const [city, setCity] = useState("");
-  const [type, setType] = useState("");
-  const [labId, setLabId] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
@@ -116,10 +108,7 @@ export default function SignIn({ csrfToken }) {
         email,
         firstname,
         lastname,
-        gender,
         license,
-        speciality,
-        city,
         phone,
         role: "doctor",
         password,
@@ -135,10 +124,7 @@ export default function SignIn({ csrfToken }) {
         email,
         firstname,
         lastname,
-        gender,
         license,
-        speciality,
-        city,
         phone,
         role: "doctor",
         password,
@@ -159,10 +145,7 @@ export default function SignIn({ csrfToken }) {
       body: JSON.stringify({
         email,
         name,
-        type,
         phone,
-        labId,
-        
         role: "lab",
         password,
       }),
@@ -176,7 +159,6 @@ export default function SignIn({ csrfToken }) {
         redirect: false,
         email,
         name,
-        type,
         phone,
         role: "lab",
         password,
@@ -597,24 +579,7 @@ export default function SignIn({ csrfToken }) {
                                   onChange={(e) => setName(e.target.value)}
                                 />
                               </label>
-                              <label className="text-blue-400 ">
-                                Type
-                                <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                  name="type"
-                                  type="text"
-
-                                  onChange={(e) => setType(e.target.value)}
-                                />
-                              </label>
-                              <label className="text-blue-400 ">
-                                Lab License I'd
-                                <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                  name="labId"
-                                  type="text"
-
-                                  onChange={(e) => setLabId(e.target.value)}
-                                />
-                              </label>
+                              
                               <label className="text-blue-400 ">
                                 Phone Number
                                 <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"

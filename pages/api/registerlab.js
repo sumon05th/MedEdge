@@ -17,21 +17,21 @@ export default async function handler(req, res) {
     name: body.name,
     phone: body.phone,
     role: body.role,
-    labid: body.labid,
+    username: createUserID(body.name, body.phone),
     password: hashpass,
   });
 
-  function createUserID(name, labType, phoneNumber) {
+  function createUserID(name,  phoneNumber) {
     // Get the first two characters of the names and capitalize them
     const formattedName = name.slice(0, 2).toUpperCase();
-    const formattedLabType = labType.slice(0, 2).toUpperCase();
+   
   
     // Get the last five digits of the phone number
     const formattedPhoneNumber = phoneNumber.replace(/\D/g, '');
     const lastFiveDigits = formattedPhoneNumber.slice(-5);
   
     // Concatenate formatted name, lab type, and last five digits of the phone number
-    const userID = "LAB" + formattedName + formattedLabType + lastFiveDigits;
+    const userID = "LAB" + formattedName + lastFiveDigits;
   
     return userID;
   }
@@ -40,10 +40,11 @@ export default async function handler(req, res) {
     email: body.email,
     name: body.name,
     phone: body.phone,
-    labid: body.labid,
+    username: body.username,
     role: body.role,
+
     address: "",
-    labtype: createUserID(body.name, body.type, body.phone),
+    username: createUserID(body.name,  body.phone),
     pincode: 0,
   });
   await user.save();

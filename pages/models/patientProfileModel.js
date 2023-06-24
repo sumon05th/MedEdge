@@ -13,6 +13,9 @@ const profileSchema = new mongoose.Schema(
     role: {
       type: String,
     },
+    username: {     
+      type: String, 
+    },  
     phone: {
       type: Number,
     },
@@ -27,9 +30,6 @@ const profileSchema = new mongoose.Schema(
     },
     profilephoto: {
       type: String,
-    },
-    age: {
-      type: Number,
     },
     gender: {
       type: String,

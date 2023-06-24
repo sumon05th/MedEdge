@@ -13,7 +13,7 @@ const profileSchema = new mongoose.Schema(
     phone: {
       type: Number,
     },
-    labid: {  
+    username: {  
       type: String,
     },
     labtype: {    
