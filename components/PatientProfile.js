@@ -81,8 +81,8 @@ function PatientProfile() {
         width={200}
         height={200}
       />
-      <div className=" mt-2 text-center border-2 border-red-500">{profile?.username}</div>
-      <button
+      <div className=" mt-2 text-center  ">UserName : {profile?.username}</div>
+      {/* <button
         onClick={() =>
           signOut({
             callbackUrl: `${window.location.origin}`,
@@ -90,60 +90,91 @@ function PatientProfile() {
         }
       >
         Sign out
-      </button>
-      <div>{profile?.firstname}</div>
-      <div>{profile?.lastname}</div>
-      <div>{profile?.email}</div>
-      <div>{profile?.phone}</div>
-      {/* <div>{profile?.username}</div> */}
-      <label>
-        Age
-        <input
-          name="age"
-          type="text"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </label>
-      <label>
-        Pincode
-        <input
-          name="pincode"
-          type="text"
-          value={pincode}
-          onChange={(e) => setPincode(e.target.value)}
-        />
-      </label>
-      <label>
-        Address
-        <input
-          name="address"
-          type="text"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-      </label>
-      <label>
-        Blood Group
-        <input
-          name="bloodgroup"
-          type="text"
-          value={bloodgroup}
-          onChange={(e) => setBloodgroup(e.target.value)}
-        />
-      </label>
-      <label>
-        Gender
-        <input
-          name="gender"
-          type="text"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        />
-      </label>
-      <button type="submit" onClick={(e) => updateProfile(e)}>
-        Submit
-      </button>
+      </button> */}
+      <div className=" ml-16 p-3">
+        <div> Name :{profile?.firstname} {profile?.lastname}</div>
+        {/* <div>{profile?.lastname}</div> */}
+
+        <div> Contact :{profile?.phone}</div>
+        <div>Email :{profile?.email}</div>
+        {/* <div>{profile?.username}</div> */}
+        <div>
+          <p>
+            <label>
+              Age:
+              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
+                name="age"
+                type="text"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </label>
+          </p>
+          <p>
+            <label className="font-semibold">
+              Address :
+              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
+                name="address"
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              Pincode :
+              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
+                name="pincode"
+                type="text"
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              Blood Group :
+              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
+                name="bloodgroup"
+                type="text"
+                value={bloodgroup}
+                onChange={(e) => setBloodgroup(e.target.value)}
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              Gender :
+              <input className="mt-2  pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
+                name="gender"
+                type="text"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              />
+            </label>
+          </p>
+        </div>
+      </div>
+      <div className=" grid grid-cols-2  place-items-center mt-4 ">
+        <div>
+          <button className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md" type="submit" onClick={(e) => updateProfile(e)}>
+            Update
+          </button>
+        </div>
+        <div>
+          <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
+            onClick={() =>
+              signOut({
+                callbackUrl: `${window.location.origin}`,
+              })
+            }
+          >
+            Sign out
+          </button>
+        </div>
+      </div>
+      <h2>Lab Reports</h2>
       {reports?.map((report) => (
         <>
           <Image
@@ -156,6 +187,7 @@ function PatientProfile() {
           <p>{report.labAddress}</p>
         </>
       ))}
+      <h2>Prescription</h2>
       {prescriptions?.map((prescription) => (
         <>
           <Image

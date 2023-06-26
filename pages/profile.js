@@ -10,7 +10,7 @@ function profile() {
   return (
     <div>
 
-      {/* <button
+      <button
         onClick={() =>
           signOut({
             callbackUrl: `${window.location.origin}`,
@@ -18,7 +18,7 @@ function profile() {
         }
       >
         Sign out
-      </button> */}
+      </button>
       {session.user.role === "patient" && <PatientProfile />}
       {session.user.role === "doctor" && <DoctorProfile />}
       {session.user.role === "lab" && <LabProfile />}
