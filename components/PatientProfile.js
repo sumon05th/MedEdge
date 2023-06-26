@@ -3,6 +3,7 @@ import { useSession, signOut, getSession } from "next-auth/react";
 import axios from "axios";
 import Router, { useRouter } from "next/router";
 import Image from "next/image";
+
 function PatientProfile() {
   const router = useRouter();
   const query = router.query;
@@ -73,18 +74,28 @@ function PatientProfile() {
     Router.reload();
   };
   return (
-    <div>
-      <Image
+    <div className="">
+      <Image className=" mx-auto "
         src={profile?.profilephoto}
         alt="Picture of the author"
         width={200}
         height={200}
       />
+      <div className=" mt-2 text-center border-2 border-red-500">{profile?.username}</div>
+      <button
+        onClick={() =>
+          signOut({
+            callbackUrl: `${window.location.origin}`,
+          })
+        }
+      >
+        Sign out
+      </button>
       <div>{profile?.firstname}</div>
       <div>{profile?.lastname}</div>
       <div>{profile?.email}</div>
       <div>{profile?.phone}</div>
-      <div>{profile?.username}</div>
+      {/* <div>{profile?.username}</div> */}
       <label>
         Age
         <input
@@ -154,9 +165,11 @@ function PatientProfile() {
             height={200}
           />
           <p>{prescription.doctorName}</p>
+
         </>
       ))}
     </div>
+
   );
 }
 

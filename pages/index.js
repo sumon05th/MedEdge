@@ -48,7 +48,7 @@ export default function Home() {
           {/* </Link> */}
         </div>
       </div>
-      <div className="flex bg-blue-300 text-green-700 font-semibold items-center  space-x-3 text-xl xl:text-xl p-2 pl-52">
+      <div className="flex bg-black text-green-600 font-semibold items-center  space-x-3 text-xl xl:text-xl p-2 pl-52">
         <div>Better </div>
         <div> Healthcare</div>
         <div> for </div>
