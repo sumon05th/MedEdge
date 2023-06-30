@@ -74,133 +74,190 @@ function PatientProfile() {
     Router.reload();
   };
   return (
-    <div className="">
-      <Image className=" mx-auto "
-        src={profile?.profilephoto}
-        alt="Picture of the author"
-        width={200}
-        height={200}
-      />
-      <div className=" mt-2 text-center  ">UserName : {profile?.username}</div>
-      {/* <button
-        onClick={() =>
-          signOut({
-            callbackUrl: `${window.location.origin}`,
-          })
-        }
-      >
-        Sign out
-      </button> */}
-      <div className=" ml-16 p-3">
-        <div> Name :{profile?.firstname} {profile?.lastname}</div>
-        {/* <div>{profile?.lastname}</div> */}
+    <div className="m-6 mr-10 ml-10">
+      <div className="bg-sky-200 rounded-md pb-4">
+        <Image className=" mx-auto pt-2 pb-2 "
+          src={profile?.profilephoto}
+          alt="Picture of the author"
+          width={200}
+          height={200}
+        />
+        <div className=" mt-2 text-center font-bold  "> <span className="font-semibold font-mono"> UserName :</span> {profile?.username}</div>
+      </div>
+      <div className="bg-red-100 mt-3 rounded-lg pb-4">
 
-        <div> Contact :{profile?.phone}</div>
-        <div>Email :{profile?.email}</div>
-        {/* <div>{profile?.username}</div> */}
-        <div>
-          <p>
-            <label>
-              Age:
-              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
-                name="age"
-                type="text"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-              />
-            </label>
-          </p>
-          <p>
-            <label className="font-semibold">
-              Address :
-              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
-                name="address"
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </label>
-          </p>
-          <p>
-            <label>
-              Pincode :
-              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
-                name="pincode"
-                type="text"
-                value={pincode}
-                onChange={(e) => setPincode(e.target.value)}
-              />
-            </label>
-          </p>
-          <p>
-            <label>
-              Blood Group :
-              <input className="mt-2 pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
-                name="bloodgroup"
-                type="text"
-                value={bloodgroup}
-                onChange={(e) => setBloodgroup(e.target.value)}
-              />
-            </label>
-          </p>
-          <p>
-            <label>
-              Gender :
-              <input className="mt-2  pl-3 font-sans text-md text-gray-700  bg-green-200 rounded-md"
-                name="gender"
-                type="text"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              />
-            </label>
-          </p>
+
+        <div className=" ml-16 p-4">
+          <h3 className=" flex items-center justify-center font-bold ">Patient Details</h3>
+          <div className=" mt-2 font-semibold font-mono ml-2 text-lg " ><span className="font-semibold font-mono "> Name :</span>{profile?.firstname} {profile?.lastname}</div>
+
+
+          <div className=" mt-2 font-semibold font-mono ml-2 text-lg"><span className="font-semibold font-mono"> Contact :</span>{profile?.phone}</div>
+          <div className="  mt-2 font-semibold font-mono ml-2 text-lg "><span className="font-semibold font-mono"> Email :</span>{profile?.email}</div>
+
+          <div className=" grid-flow-col ">
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500"> Age:</span>
+
+                <input
+                  placeholder="Enter Your Age"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="age"
+                  type="number"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                />
+
+              </div>
+            </div>
+
+
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">  Address:</span>
+
+                <input
+                  placeholder="Enter Your Address"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 block w-[50%] overflow-hidden resize-both min-h-40px leading-20px font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="Enter Your Adress "
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+
+              </div>
+            </div>
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500"> Pincode:</span>
+
+                <input
+                  placeholder="Pincode"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="pincode"
+                  type="number"
+                  value={pincode}
+                  onChange={(e) => setPincode(e.target.value)}
+                />
+
+              </div>
+            </div>
+
+
+
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500"> Blood Group:</span>
+
+                <input
+                  placeholder="Enter Blood Group"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="bloodgroup"
+                  type="text"
+                  value={bloodgroup}
+                  onChange={(e) => setBloodgroup(e.target.value)}
+                />
+
+              </div>
+            </div>
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">Gender:</span>
+
+                <input
+                  placeholder="Your Gender"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md  font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="gender"
+                  type="text"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                />
+
+
+
+
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        <div className=" grid grid-cols-2  place-items-center mt-4 ">
+          <div>
+            <button className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md" type="submit" onClick={(e) => updateProfile(e)}>
+              Update
+            </button>
+          </div>
+          <div>
+            <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
+              onClick={() =>
+                signOut({
+                  callbackUrl: `${window.location.origin}`,
+                })
+              }
+            >
+              Sign out
+            </button>
+          </div>
         </div>
       </div>
-      <div className=" grid grid-cols-2  place-items-center mt-4 ">
+
+      <div className="bg-green-200 p-8 mt-4 rounded-lg grid grid-cols-2 gap-3">
+
         <div>
-          <button className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md" type="submit" onClick={(e) => updateProfile(e)}>
-            Update
-          </button>
+          <h3 className=" flex  font-bold ">Patient Lab Reports</h3>
+
+          {reports?.map((report) => (
+            <div>
+              <p className="font-mono font-semibold">{report.labName}</p>
+              <p className="font-mono font-semibold">{report.labAddress}</p>
+              <Image className="ml-10 mt-3"
+                src={report.imageUrl}
+                alt="Picture of the author"
+                width={200}
+                height={200}
+              />
+
+            </div>
+          ))}
         </div>
-        <div>
-          <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
-            onClick={() =>
-              signOut({
-                callbackUrl: `${window.location.origin}`,
-              })
-            }
-          >
-            Sign out
-          </button>
+
+        <div className="ml-6 ">
+          <h3 className=" font-bold ">Patient prescription</h3>
+          {prescriptions?.map((prescription) => (
+            <div className="mt-4">
+              <p className="font-mono font-semibold"><span className="font-bold text-gray-500">Doctor:</span>{prescription.doctorName}</p>
+              <Image className="ml-10 mt-3"
+                src={prescription.imageUrl}
+                alt="Picture of the author"
+                width={200}
+                height={200}
+              />
+
+
+
+
+
+            </div>
+          ))}
+
         </div>
       </div>
-      <h2>Lab Reports</h2>
-      {reports?.map((report) => (
-        <>
-          <Image
-            src={report.imageUrl}
-            alt="Picture of the author"
-            width={200}
-            height={200}
-          />
-          <p>{report.labName}</p>
-          <p>{report.labAddress}</p>
-        </>
-      ))}
-      <h2>Prescription</h2>
-      {prescriptions?.map((prescription) => (
-        <>
-          <Image
-            src={prescription.imageUrl}
-            alt="Picture of the author"
-            width={200}
-            height={200}
-          />
-          <p>{prescription.doctorName}</p>
+    </div >
 
-        </>
-      ))}
-    </div>
 
   );
 }

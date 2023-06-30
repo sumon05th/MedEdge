@@ -95,6 +95,18 @@ function LabProfile() {
         onChange={(e) => setGender(e.target.value)}
       />
     </label> */}
+    <div>
+      <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
+        onClick={() =>
+          signOut({
+            callbackUrl: `${window.location.origin}`,
+          })
+        }
+      >
+        Sign out
+      </button>
+    </div>
+
     <button type="submit" onClick={(e) => updateProfile(e)}>Submit</button>
   </div>);
 }

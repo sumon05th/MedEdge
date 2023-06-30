@@ -15,7 +15,7 @@ function Doctorprofile() {
   const [gender, setGender] = useState();
   const [role, setrole] = useState();
   const [experience, setExperience] = useState();
-  
+
 
 
   const fetchData = () => {
@@ -24,7 +24,7 @@ function Doctorprofile() {
       .then((response) => {
         setProfile(response.data)
         setAge(response.data.age)
-       setCurrentworkplace(response.data.currentworkplace)
+        setCurrentworkplace(response.data.currentworkplace)
         setExperience(response.data.experience)
         setGender(response.data.gender)
         setrole(response.data.role)
@@ -42,7 +42,7 @@ function Doctorprofile() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, age, gender ,experience,currentworkplace,speciality}),
+      body: JSON.stringify({ email, age, gender, experience, currentworkplace, speciality }),
     });
     Router.reload();
   };
@@ -57,8 +57,8 @@ function Doctorprofile() {
     <div>{profile?.role}</div>
     <div>{profile?.username}</div>
 
-    
-    
+
+
 
     <label>
       Age
@@ -70,12 +70,12 @@ function Doctorprofile() {
       />
     </label>
     <label>
-     Experience
+      Experience
       <input
-        name="experience"     
+        name="experience"
         type="text"
         value={experience}
-        onChange={(e) =>setExperience(e.target.value)}
+        onChange={(e) => setExperience(e.target.value)}
       />
     </label>
     <label>
@@ -105,6 +105,17 @@ function Doctorprofile() {
         onChange={(e) => setGender(e.target.value)}
       />
     </label>
+    <div>
+      <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
+        onClick={() =>
+          signOut({
+            callbackUrl: `${window.location.origin}`,
+          })
+        }
+      >
+        Sign out
+      </button>
+    </div>
     <button type="submit" onClick={(e) => updateProfile(e)}>Submit</button>
   </div>);
 }
