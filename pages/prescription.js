@@ -80,6 +80,9 @@ export default function prescription() {
       </form>
 
       <p>{message}</p>
+      <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md">
+        <a href="http://localhost:3000/profile">Go Back to Profile</a>
+      </button>
     </div>
   );
 }

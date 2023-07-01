@@ -1,7 +1,12 @@
 // Home Page
 import Head from "next/head";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 import { useSession, signIn, getSession } from "next-auth/react";
 import Router from "next/router";
 import { useEffect } from "react";
@@ -13,14 +18,16 @@ export default function Home() {
     }
   }, []);
   return (
-
-    <header >
+    <header>
       {/* navbar */}
       <div className="flex  bg-blue-200 text-black h-[60px] ">
         {/* left */}
         <div className="flex items-center m-4 ">
           {/* <Link to={"/"}> */}
-          <img className="h-[35px] w-[100px] m-2" src={"../images/mededg_logo.png"} />
+          <img
+            className="h-[35px] w-[100px] m-2"
+            src={"../images/mededg_logo.png"}
+          />
           {/* </Link> */}
 
           {/* <div className="pl-4 pt-5">
@@ -29,7 +36,6 @@ export default function Home() {
           <div className="pr-4 pl-9 ">
             <div className="text-xs xl:text-sm">Any where </div>
             <div className="text-sm xl:text-base font-bold"> India</div>
-
           </div>
         </div>
         {/* middle */}
@@ -39,12 +45,15 @@ export default function Home() {
         {/* right */}
         <div className="flex items-center m-4">
           <div className="pr-4 pl-4">
-            <button className="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded" onClick={() => signIn()} >Sign in/Sign Up</button>
+            <button
+              className="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded"
+              onClick={() => signIn()}
+            >
+              Sign in/Sign Up
+            </button>
           </div>
 
-          <div className=" flex pr-3 pl-3">
-
-          </div>
+          <div className=" flex pr-3 pl-3"></div>
           {/* </Link> */}
         </div>
       </div>
@@ -58,16 +67,22 @@ export default function Home() {
 
       {/* homepage */}
       <div class="relative h-screen">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent to-black"> <img className="h-screen w-screen" src={"../images/Home_bg.jpg"} /></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent to-black">
+          {" "}
+          <img className="h-screen w-screen" src={"../images/Home_bg.jpg"} />
+        </div>
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent"></div>
         <div class="absolute top-0 left-0 w-full h-full flex m-10 ">
           <div class="text-white text-center">
             <p class="text-2xl font-bold">WELCOME TO MEDEDGE</p>
             <p class="text-lg p-6">Additional paragraph content</p>
-            <button class="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xl font-medium  leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-gradient-to-r from-gray-500 from-10% via-blue-400 via-30% to-emerald-500 to-90% hover:bg-opacity-10  hover:text-black focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-              onClick={() => signIn()} >Sign in/Sign Up</button>
+            <button
+              class="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xl font-medium  leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-gradient-to-r from-gray-500 from-10% via-blue-400 via-30% to-emerald-500 to-90% hover:bg-opacity-10  hover:text-black focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+              onClick={() => signIn()}
+            >
+              Sign in/Sign Up
+            </button>
           </div>
-
         </div>
       </div>
       {/* footer */}
@@ -78,21 +93,43 @@ export default function Home() {
             <p className="text-white">Some content here</p>
             <p className="text-white">Some content here</p>
             <p className="text-white">Some content here</p>
-
-
           </div>
           <div className="flex space-x-5 items-center justify-center m-5 p-5">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-white"
+            >
               <FontAwesomeIcon className="h-7 w-7" icon={faTwitter} />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-white"
+            >
               <FontAwesomeIcon className="h-7 w-7" icon={faFacebook} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-red-600  hover:text-white">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-600  hover:text-white"
+            >
               <FontAwesomeIcon className="h-7 w-7" icon={faInstagram} />
             </a>
-            <a href="https://www.linkedin.com/your-profile-url" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white">
-              <FontAwesomeIcon className="h-7 w-7" icon={faLinkedin} size="lg" />
+            <a
+              href="https://www.linkedin.com/your-profile-url"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-white"
+            >
+              <FontAwesomeIcon
+                className="h-7 w-7"
+                icon={faLinkedin}
+                size="lg"
+              />
             </a>
           </div>
           <p className="text-gray-400 text-center mt-4">
@@ -100,16 +137,7 @@ export default function Home() {
           </p>
         </div>
       </footer>
-
-
-
-
     </header>
-
-
-
-
-
   );
 }
 export async function getServerSideProps(context) {

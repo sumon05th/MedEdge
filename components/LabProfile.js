@@ -94,20 +94,28 @@ function LabProfile() {
         onChange={(e) => setGender(e.target.value)}
       />
     </label> */}
+      <div>
+        <button
+          className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
+          onClick={() =>
+            signOut({
+              callbackUrl: `${window.location.origin}`,
+            })
+          }
+        >
+          Sign out
+        </button>
+      </div>
+
       <button type="submit" onClick={(e) => updateProfile(e)}>
         Submit
       </button>
 
-      <br></br>
-      <button
-        onClick={() =>
-          signOut({
-            callbackUrl: `${window.location.origin}`,
-          })
-        }
-      >
-        Sign out
-      </button>
+      <div>
+        <button className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md">
+          <a href="http://localhost:3000/report">Upload Lab Report: </a>
+        </button>
+      </div>
     </div>
   );
 }

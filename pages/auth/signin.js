@@ -10,8 +10,8 @@ import {
 } from "@material-tailwind/react";
 export default function SignIn({ csrfToken }) {
   const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState(""); 
-  
+  const [lastname, setLastname] = useState("");
+
   const [license, setLicense] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
@@ -222,17 +222,17 @@ export default function SignIn({ csrfToken }) {
 
                           <div className="md:mx-6 md:p-12">
                             {/* <!--Logo--> */}
-                            <div className="text-center">
+                            <div className="text-center text-gray-300">
                               <img
                                 className="mx-auto w-48 mt-2"
                                 src="../images/mededg_logo2.png"
                                 alt="logo" />
-                              <h4 className="mb-12 mt-3 pb-1 text-xl font-semibold">
+                              <h4 className="mb-12 mt-3  pb-1 text-xl font-semibold">
                                 Welcome To <span className="text-green-600 font-serif">MedEdge</span>
                               </h4>
                             </div>
                             <form>
-                              <p className="mb-4">Please login to your account</p>
+                              <p className="mb-4 text-gray-300">Please login to your account</p>
                               <div className="relative mb-4" data-te-input-wrapper-init>
                                 <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                                 <label className="text-blue-400 ">
@@ -262,7 +262,7 @@ export default function SignIn({ csrfToken }) {
                                 </button>
                               </div>
 
-                              <div className="flex items-center justify-between pb-6">
+                              <div className="flex items-center justify-between pb-6 text-gray-300">
                                 <p className="mb-0 mr-2">Don't have an account? Register Now.</p>
 
 
@@ -301,11 +301,11 @@ export default function SignIn({ csrfToken }) {
                                 className="mx-auto w-48 mt-1"
                                 src="../images/mededg_logo2.png"
                                 alt="logo" />
-                              <h4 className="mb-3 mt-3 pb-1 text-xl font-semibold">
+                              <h4 className="mb-3 mt-3 pb-1 text-xl font-semibold text-gray-300">
                                 Welcome To <span className="text-green-600 font-serif">MedEdge</span>
                               </h4>
                             </div>
-                            <p className="mb-4">Register and Start </p>
+                            <p className="mb-4 text-gray-300">Register and Start </p>
                             <div className="relative mb-4" data-te-input-wrapper-init>
                               <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                               <label className="text-blue-400 ">
@@ -381,7 +381,7 @@ export default function SignIn({ csrfToken }) {
                             </div>
 
                             <div className="flex items-center justify-between pb-6">
-                              <p className="mb-0 mr-2">Already have an Account! Sign In</p>
+                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! Sign In</p>
 
 
                             </div>
@@ -408,8 +408,8 @@ export default function SignIn({ csrfToken }) {
                     </TabPanel>
 
                     <TabPanel value="doctorregister">
-                     {/* Register as a doctor */}
-                     <div className="g-0 lg:flex lg:flex-wrap">
+                      {/* Register as a doctor */}
+                      <div className="g-0 lg:flex lg:flex-wrap">
                         <div className="px-4 md:px-0 lg:w-6/12">
 
                           <div className="md:mx-6 md:p-12">
@@ -419,11 +419,11 @@ export default function SignIn({ csrfToken }) {
                                 className="mx-auto w-48 mt-1"
                                 src="../images/mededg_logo2.png"
                                 alt="logo" />
-                              <h4 className="mb-3 mt-3 pb-1 text-xl font-semibold">
+                              <h4 className="mb-3 mt-3 pb-1 text-xl font-semibold text-gray-300">
                                 Welcome To <span className="text-green-600 font-serif">MedEdge</span>
                               </h4>
                             </div>
-                            <p class="mb-4">Register and Start </p>
+                            <p class="mb-4 text-gray-300">Register and Start </p>
                             <div class="relative mb-4" data-te-input-wrapper-init>
                               <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                               <label className="text-blue-400 ">
@@ -453,9 +453,9 @@ export default function SignIn({ csrfToken }) {
                                   onChange={(e) => setLastname(e.target.value)}
                                 />
                               </label>
-                              
-                              
-                              
+
+
+
                               <label className="text-blue-400 ">
                                 Medical License Number
                                 <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
@@ -464,10 +464,10 @@ export default function SignIn({ csrfToken }) {
                                   onChange={(e) => setLicense(e.target.value)}
                                 />
                               </label>
-                              
-                             
-                              
-                           
+
+
+
+
                               <label className="text-blue-400 ">
                                 Phone Number
                                 <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
@@ -514,7 +514,7 @@ export default function SignIn({ csrfToken }) {
                             </div>
 
                             <div className="flex items-center justify-between pb-6">
-                              <p className="mb-0 mr-2">Already have an Account! Sign In.</p>
+                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! Sign In.</p>
 
 
                             </div>
@@ -537,7 +537,7 @@ export default function SignIn({ csrfToken }) {
                           </div>
                         </div>
 
-                      </div> 
+                      </div>
                     </TabPanel>
 
 
@@ -554,11 +554,11 @@ export default function SignIn({ csrfToken }) {
                                 className="mx-auto w-48 mt-1"
                                 src="../images/mededg_logo2.png"
                                 alt="logo" />
-                              <h4 className="mb-3 mt-3 pb-1 text-xl font-semibold">
+                              <h4 className="mb-3 mt-3 pb-1 text-xl font-semibold text-gray-300">
                                 Welcome To <span className="text-green-600 font-serif">MedEdge</span>
                               </h4>
                             </div>
-                            <p className="mb-4">Register and Start </p>
+                            <p className="mb-4 text-gray-300">Register and Start </p>
                             <div className="relative mb-4" data-te-input-wrapper-init>
                               <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                               <label className="text-blue-400 ">
@@ -579,7 +579,7 @@ export default function SignIn({ csrfToken }) {
                                   onChange={(e) => setName(e.target.value)}
                                 />
                               </label>
-                              
+
                               <label className="text-blue-400 ">
                                 Phone Number
                                 <input className=" peer block min-h-[auto] w-full rounded border-2 border-gray-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
@@ -626,7 +626,7 @@ export default function SignIn({ csrfToken }) {
                             </div>
 
                             <div className="flex items-center justify-between pb-6">
-                              <p className="mb-0 mr-2">Already have an Account! Sign In</p>
+                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! Sign In</p>
 
 
                             </div>

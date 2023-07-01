@@ -80,6 +80,12 @@ export default function report() {
       </form>
 
       <p>{message}</p>
+
+      <div>
+        <button>
+          <a href="http://localhost:3000/profile">Go Back to Lab</a>
+        </button>
+      </div>
     </div>
   );
 }
