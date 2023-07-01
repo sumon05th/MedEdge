@@ -15,22 +15,19 @@ function Doctorprofile() {
   const [gender, setGender] = useState();
   const [role, setrole] = useState();
   const [experience, setExperience] = useState();
-  
-
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getdoctorprofile/?email=${emailt}`;
-    return axios.get(url)
-      .then((response) => {
-        setProfile(response.data)
-        setAge(response.data.age)
-       setCurrentworkplace(response.data.currentworkplace)
-        setExperience(response.data.experience)
-        setGender(response.data.gender)
-        setrole(response.data.role)
-        setSpeciality(response.data.speciality)
-      });
-  }
+    return axios.get(url).then((response) => {
+      setProfile(response.data);
+      setAge(response.data.age);
+      setCurrentworkplace(response.data.currentworkplace);
+      setExperience(response.data.experience);
+      setGender(response.data.gender);
+      setrole(response.data.role);
+      setSpeciality(response.data.speciality);
+    });
+  };
   useEffect(() => {
     fetchData();
   }, []);
@@ -42,71 +39,101 @@ function Doctorprofile() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, age, gender ,experience,currentworkplace,speciality}),
+      body: JSON.stringify({
+        email,
+        age,
+        gender,
+        experience,
+        currentworkplace,
+        speciality,
+      }),
     });
     Router.reload();
   };
 
+  return (
+    <div className="">
+      <Image
+        className="mx-auto"
+        src={profile?.profilephoto}
+        alt="Picture of the author"
+        width={200}
+        height={200}
+      />
+      <div className="grid grid-rows-2 ">
+        <div>{profile?.firstname}</div>
+        <div>{profile?.lastname}</div>
+      </div>
+      <div className="grid grid-cols-6 gap-2">
+        <div>{profile?.email}</div>
+        <div>{profile?.phone}</div>
+        <div>{profile?.role}</div>
+        <div>{profile?.username}</div>
+      </div>
 
-  return (<div>
-    <Image src={profile?.profilephoto} alt="Picture of the author" width={200} height={200} />
-    <div>{profile?.firstname}</div>
-    <div>{profile?.lastname}</div>
-    <div>{profile?.email}</div>
-    <div>{profile?.phone}</div>
-    <div>{profile?.role}</div>
-    <div>{profile?.username}</div>
+      <div className="grid grid-cols-6 gap-4">
+        <label>
+          Age
+          <input
+            name="age"
+            type="text"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+        </label>
+        <label>
+          Experience
+          <input
+            name="experience"
+            type="text"
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)}
+          />
+        </label>
+        <label>
+          Currentworkplace
+          <input
+            name="currentworkplace"
+            type="text"
+            value={currentworkplace}
+            onChange={(e) => currentworkplace(e.target.value)}
+          />
+        </label>
+        <label>
+          Speciality
+          <input
+            name="speciality"
+            type="text"
+            value={speciality}
+            onChange={(e) => setSpeciality(e.target.value)}
+          />
+        </label>
+        <label>
+          Gender
+          <input
+            name="gender"
+            type="text"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          />
+        </label>
+      </div>
+      <button type="submit" onClick={(e) => updateProfile(e)}>
+        Submit
+      </button>
 
-    
-    
-
-    <label>
-      Age
-      <input
-        name="age"
-        type="text"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-      />
-    </label>
-    <label>
-     Experience
-      <input
-        name="experience"     
-        type="text"
-        value={experience}
-        onChange={(e) =>setExperience(e.target.value)}
-      />
-    </label>
-    <label>
-      Currentworkplace
-      <input
-        name="currentworkplace"
-        type="text"
-        value={currentworkplace}
-        onChange={(e) => currentworkplace(e.target.value)}
-      />
-    </label>
-    <label>
-      Speciality
-      <input
-        name="speciality"
-        type="text"
-        value={speciality}
-        onChange={(e) => setSpeciality(e.target.value)}
-      />
-    </label>
-    <label>
-      Gender
-      <input
-        name="gender"
-        type="text"
-        value={gender}
-        onChange={(e) => setGender(e.target.value)}
-      />
-    </label>
-    <button type="submit" onClick={(e) => updateProfile(e)}>Submit</button>
-  </div>);
+      <br></br>
+      <button
+        onClick={() =>
+          signOut({
+            callbackUrl: `${window.location.origin}`,
+          })
+        }
+      >
+        Sign out
+      </button>
+    </div>
+  );
 }
 
 export default Doctorprofile;

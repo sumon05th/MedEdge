@@ -17,16 +17,15 @@ function LabProfile() {
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getlabprofile/?email=${emailt}`;
-    return axios.get(url)
-      .then((response) => {
-        setProfile(response.data)
-        // setAge(response.data.age)
-        setAddress(response.data.address)
-        // setBloodgroup(response.data.bloodgroup)
-        setPincode(response.data.pincode)
-        // setGender(response.data.gender)
-      });
-  }
+    return axios.get(url).then((response) => {
+      setProfile(response.data);
+      // setAge(response.data.age)
+      setAddress(response.data.address);
+      // setBloodgroup(response.data.bloodgroup)
+      setPincode(response.data.pincode);
+      // setGender(response.data.gender)
+    });
+  };
   useEffect(() => {
     fetchData();
   }, []);
@@ -43,14 +42,14 @@ function LabProfile() {
     Router.reload();
   };
 
-
-  return (<div>
-    <div>{profile?.name}</div>
-    {/* <div>{profile?.lastname}</div> */}
-    <div>{profile?.email}</div>
-    <div>{profile?.phone}</div>
-    <div>{profile?.username}</div>
-    {/* <label>
+  return (
+    <div>
+      <div>{profile?.name}</div>
+      {/* <div>{profile?.lastname}</div> */}
+      <div>{profile?.email}</div>
+      <div>{profile?.phone}</div>
+      <div>{profile?.username}</div>
+      {/* <label>
       Age
       <input
         name="age"
@@ -59,25 +58,25 @@ function LabProfile() {
         onChange={(e) => setAge(e.target.value)}
       />
     </label> */}
-    <label>
-      Pincode
-      <input
-        name="pincode"
-        type="text"
-        value={pincode}
-        onChange={(e) => setPincode(e.target.value)}
-      />
-    </label>
-    <label>
-      Address
-      <input
-        name="address"
-        type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-      />
-    </label>
-    {/* <label>
+      <label>
+        Pincode
+        <input
+          name="pincode"
+          type="text"
+          value={pincode}
+          onChange={(e) => setPincode(e.target.value)}
+        />
+      </label>
+      <label>
+        Address
+        <input
+          name="address"
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+      </label>
+      {/* <label>
       Blood Group
       <input
         name="bloodgroup"
@@ -86,7 +85,7 @@ function LabProfile() {
         onChange={(e) => setBloodgroup(e.target.value)}
       />
     </label> */}
-    {/* <label>
+      {/* <label>
       Gender
       <input
         name="gender"
@@ -95,8 +94,22 @@ function LabProfile() {
         onChange={(e) => setGender(e.target.value)}
       />
     </label> */}
-    <button type="submit" onClick={(e) => updateProfile(e)}>Submit</button>
-  </div>);
+      <button type="submit" onClick={(e) => updateProfile(e)}>
+        Submit
+      </button>
+
+      <br></br>
+      <button
+        onClick={() =>
+          signOut({
+            callbackUrl: `${window.location.origin}`,
+          })
+        }
+      >
+        Sign out
+      </button>
+    </div>
+  );
 }
 
 export default LabProfile;
