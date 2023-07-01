@@ -11,7 +11,6 @@ function Doctorprofile() {
   const emailt = session.user.email;
   const [speciality, setSpeciality] = useState();
   const [age, setAge] = useState();
-  const [reports, setReports] = useState();
   const [currentworkplace, setCurrentworkplace] = useState();
   const [gender, setGender] = useState();
   const [role, setrole] = useState();
@@ -29,19 +28,9 @@ function Doctorprofile() {
       setSpeciality(response.data.speciality);
     });
   };
-  const fetchreports = () => {
-    const url = `http://localhost:3000/api/getreport/?username=${profile?.username}`;
-    return axios.get(url).then((response) => {
-      setReports(response.data);
-    });
-  };
-  useEffect(() => {
-    fetchreports();
-  }, [profile]);
   useEffect(() => {
     fetchData();
   }, []);
-
   const updateProfile = async (e) => {
     e.preventDefault();
     const email = session.user.email;
@@ -195,7 +184,7 @@ function Doctorprofile() {
             </div>
           </div>
         </div>
-        <div className=" grid grid-cols-3  place-items-center mt-4 ">
+        <div className=" grid grid-cols-2  place-items-center mt-4 ">
           <div>
             <button
               className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md"
@@ -203,14 +192,6 @@ function Doctorprofile() {
               onClick={(e) => updateProfile(e)}
             >
               Update
-            </button>
-          </div>
-
-          <div>
-            <button className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md">
-              <a href="http://localhost:3000/prescription">
-                Upload Prescription:{" "}
-              </a>
             </button>
           </div>
           <div>
@@ -225,25 +206,6 @@ function Doctorprofile() {
               Sign out
             </button>
           </div>
-        </div>
-      </div>
-      <div className="bg-green-200 p-8 mt-4 rounded-lg grid grid-cols-1 gap-3">
-        <div>
-          <h3 className=" flex  font-bold ">Patient Lab Reports</h3>
-
-          {reports?.map((report) => (
-            <div>
-              <p className="font-mono font-semibold">{report.labName}</p>
-              <p className="font-mono font-semibold">{report.labAddress}</p>
-              <Image
-                className="ml-10 mt-3"
-                src={report.imageUrl}
-                alt="Picture of the author"
-                width={200}
-                height={200}
-              />
-            </div>
-          ))}
         </div>
       </div>
     </div>
