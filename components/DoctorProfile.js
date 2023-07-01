@@ -16,21 +16,18 @@ function Doctorprofile() {
   const [role, setrole] = useState();
   const [experience, setExperience] = useState();
 
-
-
   const fetchData = () => {
     const url = `http://localhost:3000/api/getdoctorprofile/?email=${emailt}`;
-    return axios.get(url)
-      .then((response) => {
-        setProfile(response.data)
-        setAge(response.data.age)
-        setCurrentworkplace(response.data.currentworkplace)
-        setExperience(response.data.experience)
-        setGender(response.data.gender)
-        setrole(response.data.role)
-        setSpeciality(response.data.speciality)
-      });
-  }
+    return axios.get(url).then((response) => {
+      setProfile(response.data);
+      setAge(response.data.age);
+      setCurrentworkplace(response.data.currentworkplace);
+      setExperience(response.data.experience);
+      setGender(response.data.gender);
+      setrole(response.data.role);
+      setSpeciality(response.data.speciality);
+    });
+  };
   useEffect(() => {
     fetchData();
   }, []);
@@ -42,82 +39,177 @@ function Doctorprofile() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, age, gender, experience, currentworkplace, speciality }),
+      body: JSON.stringify({
+        email,
+        age,
+        gender,
+        experience,
+        currentworkplace,
+        speciality,
+      }),
     });
     Router.reload();
   };
 
+  return (
+    <div className="m-6 mr-10 ml-10">
+      <div className="bg-sky-200 rounded-md pb-4">
+        <Image
+          className=" mx-auto pt-2 pb-2 "
+          src={profile?.profilephoto}
+          alt="Picture of the author"
+          width={200}
+          height={200}
+        />
+        <div className=" mt-2 text-center font-bold  ">
+          {" "}
+          <span className="font-semibold font-mono"> UserName :</span>{" "}
+          {profile?.username}
+        </div>
+      </div>
+      <div className="bg-red-100 mt-3 rounded-lg pb-4">
+        <div className=" ml-16 p-4">
+          <h3 className=" flex items-center justify-center font-bold ">
+            Doctor Details
+          </h3>
+          <div className=" mt-2 font-semibold font-mono ml-2 text-lg ">
+            <span className="font-semibold font-mono "> Name :</span>
+            {profile?.firstname} {profile?.lastname}
+          </div>
+          <div className=" mt-2 font-semibold font-mono ml-2 text-lg">
+            <span className="font-semibold font-mono"> Contact :</span>
+            {profile?.phone}
+          </div>
+          <div className="  mt-2 font-semibold font-mono ml-2 text-lg ">
+            <span className="font-semibold font-mono"> Email :</span>
+            {profile?.email}
+          </div>
+          <div className=" mt-2 font-semibold font-mono ml-2 text-lg">
+            <span className="font-semibold font-mono"> Contact :</span>
+            {profile?.phone}
+          </div>
+          <div className="  mt-2 font-semibold font-mono ml-2 text-lg ">
+            <span className="font-semibold font-mono"> Role :</span>
+            {profile?.role}
+          </div>
 
-  return (<div>
-    <Image src={profile?.profilephoto} alt="Picture of the author" width={200} height={200} />
-    <div>{profile?.firstname}</div>
-    <div>{profile?.lastname}</div>
-    <div>{profile?.email}</div>
-    <div>{profile?.phone}</div>
-    <div>{profile?.role}</div>
-    <div>{profile?.username}</div>
+          <div className=" grid-flow-col">
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
+                  {" "}
+                  Age:
+                </span>
 
+                <input
+                  placeholder="Enter Your Age"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="age"
+                  type="number"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                />
+              </div>
+            </div>
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
+                  {" "}
+                  Experience:
+                </span>
 
+                <input
+                  placeholder="Experience"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="experience"
+                  type="text"
+                  value={experience}
+                  onChange={(e) => setExperience(e.target.value)}
+                />
+              </div>
+            </div>
 
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
+                  {" "}
+                  Currentworkplace:
+                </span>
 
-    <label>
-      Age
-      <input
-        name="age"
-        type="text"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-      />
-    </label>
-    <label>
-      Experience
-      <input
-        name="experience"
-        type="text"
-        value={experience}
-        onChange={(e) => setExperience(e.target.value)}
-      />
-    </label>
-    <label>
-      Currentworkplace
-      <input
-        name="currentworkplace"
-        type="text"
-        value={currentworkplace}
-        onChange={(e) => currentworkplace(e.target.value)}
-      />
-    </label>
-    <label>
-      Speciality
-      <input
-        name="speciality"
-        type="text"
-        value={speciality}
-        onChange={(e) => setSpeciality(e.target.value)}
-      />
-    </label>
-    <label>
-      Gender
-      <input
-        name="gender"
-        type="text"
-        value={gender}
-        onChange={(e) => setGender(e.target.value)}
-      />
-    </label>
-    <div>
-      <button className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
-        onClick={() =>
-          signOut({
-            callbackUrl: `${window.location.origin}`,
-          })
-        }
-      >
-        Sign out
-      </button>
+                <input
+                  placeholder="Please fill the entry"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="currentworkplace"
+                  type="text"
+                  value={currentworkplace}
+                  onChange={(e) => setCurrentworkplace(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
+                  {" "}
+                  Speciality:
+                </span>
+
+                <input
+                  placeholder="Enter Your Specialisation"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="speciality"
+                  type="text"
+                  value={speciality}
+                  onChange={(e) => setSpeciality(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div class="relative h-11 mt-1 w-full min-w-[200px]">
+              <div class="flex items-center">
+                <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
+                  {" "}
+                  Gender:
+                </span>
+
+                <input
+                  placeholder="Enter Your Gender"
+                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  name="gender"
+                  type="text"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className=" grid grid-cols-2  place-items-center mt-4 ">
+          <div>
+            <button
+              className="h-10 w-20 border-2 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md"
+              type="submit"
+              onClick={(e) => updateProfile(e)}
+            >
+              Update
+            </button>
+          </div>
+          <div>
+            <button
+              className="h-10 w-20 border-2 font-bold bg-red-500  hover:bg-red-700 hover:text-white border-gray-500 rounded-md"
+              onClick={() =>
+                signOut({
+                  callbackUrl: `${window.location.origin}`,
+                })
+              }
+            >
+              Sign out
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <button type="submit" onClick={(e) => updateProfile(e)}>Submit</button>
-  </div>);
+  );
 }
 
 export default Doctorprofile;
