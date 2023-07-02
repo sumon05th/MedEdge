@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSession, getSession } from "next-auth/react";
+import axios from "axios";
 
 export default function prescription() {
   const { data: session } = useSession();
@@ -10,9 +11,9 @@ export default function prescription() {
       </div>
     );
   }
-  console.log(session.user);
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState(0);
   const [image, setImage] = useState(null);
 
   const handleUsernameChange = (e) => {
@@ -25,7 +26,10 @@ export default function prescription() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const ph = await axios.get(
+      `http://localhost:3000/api/getpatientnumber/?username=${username}`
+    );
+    const phone = ph.data.phone;
     // Upload image to Cloudinary
     const formData = new FormData();
     formData.append("file", image);
@@ -41,6 +45,24 @@ export default function prescription() {
 
     const data = await response.json();
     const imageUrl = data.secure_url; // Get the uploaded image URL
+
+    const number = "91" + phone;
+    const chatid = `${number}@c.us`;
+    const res = await fetch(
+      "https://api.green-api.com/waInstance7103832087/sendFileByUrl/9037e1378e404f429d9b24934c7282c7786a8e8a0ef14ee294",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chatId: chatid,
+          urlFile: imageUrl,
+          fileName: "prescription.jpg",
+          caption: `Your Prescptions from Dr. ${session.user.name}`,
+        }),
+      }
+    );
 
     // Save the URL and username to MongoDB
     const patientData = {

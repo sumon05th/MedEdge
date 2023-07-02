@@ -44,6 +44,32 @@ function Doctorprofile() {
     fetchreports();
   }, [profile]);
 
+  // const sendprescription = async(phoneNumber, imageUrl, caption)=>{
+
+  //   const number = "91" + phone
+  //   const url = 'https://api.green-api.com/waInstance7103832087/sendFileByUpload/{{apiTokenInstance}9037e1378e404f429d9b24934c7282c7786a8e8a0ef14ee294';
+
+  //   const payload = {
+  //   chatId: `${phoneNumber}@c.us`,
+  //   caption: caption
+  // };
+  //   const chatid = `${number}@c.us`
+  //    {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       chatId: chatid,
+  //       message: msg,
+  //     }),
+  //   });
+  //   console.log(otpnum);
+  //   setOtptext(otpnum);
+  //   setOtp(false);
+
+  // }
+
   const updateProfile = async (e) => {
     e.preventDefault();
     const email = session.user.email;
@@ -229,22 +255,25 @@ function Doctorprofile() {
           </div>
         </div>
       </div>
-      <div className="bg-green-200 p-8 mt-4 rounded-lg grid grid-cols-2 gap-3">
-        <h3 className=" flex  font-bold ">Patient Lab Reports</h3>
+      <div>
+        <div className="bg-green-200 p-8 mt-4 rounded-lg grid grid-cols-1 gap-3">
+          <h3 className=" flex  font-bold ">Patient Lab Reports</h3>
 
-        {reports?.map((report) => (
-          <div>
-            <p className="font-mono font-semibold">{report.labName}</p>
-            <p className="font-mono font-semibold">{report.labAddress}</p>
-            <Image
-              className="ml-10 mt-3"
-              src={report.imageUrl}
-              alt="Picture of the author"
-              width={200}
-              height={200}
-            />
-          </div>
-        ))}
+          {reports?.map((report) => (
+            <div>
+              <p>Lab Owner</p>
+              <p className="font-mono font-semibold">{report.labName}</p>
+              <p className="font-mono font-semibold">{report.labAddress}</p>
+              <Image
+                className="ml-10 mt-3"
+                src={report.imageUrl}
+                alt="Picture of the author"
+                width={200}
+                height={200}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

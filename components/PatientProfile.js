@@ -230,8 +230,12 @@ function PatientProfile() {
 
           {reports?.map((report) => (
             <div>
+              <p className="font-mono font-semibold">
+                <span className="font-bold text-gray-500">Lab Owner:</span>
+              </p>
               <p className="font-mono font-semibold">{report.labName}</p>
               <p className="font-mono font-semibold">{report.labAddress}</p>
+
               <Image
                 className="ml-10 mt-3"
                 src={report.imageUrl}
