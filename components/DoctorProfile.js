@@ -255,26 +255,7 @@ function Doctorprofile() {
           </div>
         </div>
       </div>
-      <div>
-        <div className="bg-green-200 p-8 mt-4 rounded-lg grid grid-cols-1 gap-3">
-          <h3 className=" flex  font-bold ">Patient Lab Reports</h3>
-
-          {reports?.map((report) => (
-            <div>
-              <p>Lab Owner</p>
-              <p className="font-mono font-semibold">{report.labName}</p>
-              <p className="font-mono font-semibold">{report.labAddress}</p>
-              <Image
-                className="ml-10 mt-3"
-                src={report.imageUrl}
-                alt="Picture of the author"
-                width={200}
-                height={200}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <div></div>
     </div>
   );
 }

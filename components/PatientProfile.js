@@ -231,7 +231,7 @@ function PatientProfile() {
           {reports?.map((report) => (
             <div>
               <p className="font-mono font-semibold">
-                <span className="font-bold text-gray-500">Lab Owner:</span>
+                <span className="font-bold text-gray-500">Lab:</span>
               </p>
               <p className="font-mono font-semibold">{report.labName}</p>
               <p className="font-mono font-semibold">{report.labAddress}</p>
