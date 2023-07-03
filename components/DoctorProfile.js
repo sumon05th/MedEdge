@@ -16,6 +16,9 @@ function Doctorprofile() {
   const [role, setrole] = useState();
   const [experience, setExperience] = useState();
   const [reports, setReports] = useState();
+  const [image, setImage] = useState(null);
+  const [imagefile, setImageFile] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getdoctorprofile/?email=${emailt}`;
@@ -27,6 +30,7 @@ function Doctorprofile() {
       setGender(response.data.gender);
       setrole(response.data.role);
       setSpeciality(response.data.speciality);
+      setImage(response.data.profilephoto);
     });
   };
 
@@ -44,35 +48,22 @@ function Doctorprofile() {
     fetchreports();
   }, [profile]);
 
-  // const sendprescription = async(phoneNumber, imageUrl, caption)=>{
-
-  //   const number = "91" + phone
-  //   const url = 'https://api.green-api.com/waInstance7103832087/sendFileByUpload/{{apiTokenInstance}9037e1378e404f429d9b24934c7282c7786a8e8a0ef14ee294';
-
-  //   const payload = {
-  //   chatId: `${phoneNumber}@c.us`,
-  //   caption: caption
-  // };
-  //   const chatid = `${number}@c.us`
-  //    {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       chatId: chatid,
-  //       message: msg,
-  //     }),
-  //   });
-  //   console.log(otpnum);
-  //   setOtptext(otpnum);
-  //   setOtp(false);
-
-  // }
-
   const updateProfile = async (e) => {
     e.preventDefault();
     const email = session.user.email;
+    const formData = new FormData();
+    formData.append("file", imagefile);
+    formData.append("upload_preset", "profilephotos"); // Replace with your Cloudinary upload preset
+    const response = await fetch(
+      "https://api.cloudinary.com/v1_1/dvefqwjbl/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+    const imageUrl = data.secure_url; // Get the uploaded image URL
     const res = await fetch(`http://localhost:3000/api/updatedoctorprofile/`, {
       method: "POST",
       headers: {
@@ -85,21 +76,36 @@ function Doctorprofile() {
         experience,
         currentworkplace,
         speciality,
+        profilephoto: imageUrl,
       }),
     });
     Router.reload();
   };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+    const reader = new FileReader();
 
+    reader.onload = () => {
+      setSelectedImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className="m-6 mr-10 ml-10">
       <div className="bg-sky-200 rounded-md pb-4">
+        <input type="file" accept="image/*" onChange={handleImageChange} />
         <Image
           className=" mx-auto pt-2 pb-2 "
-          src={profile?.profilephoto}
+          src={selectedImage || profile?.profilephoto}
           alt="Picture of the author"
           width={200}
           height={200}
         />
+
         <div className=" mt-2 text-center font-bold  ">
           {" "}
           <span className="font-semibold font-mono"> UserName :</span>{" "}

@@ -16,14 +16,15 @@ export default async function handler(req, res) {
     // Get the first two characters of the names and capitalize them
     const formattedFirstName = firstName.slice(0, 2).toUpperCase();
     const formattedLastName = lastName.slice(0, 2).toUpperCase();
-  
+
     // Get the last five digits of the phone number
-    const formattedPhoneNumber = phoneNumber.replace(/\D/g, '');
+    const formattedPhoneNumber = phoneNumber.replace(/\D/g, "");
     const lastFiveDigits = formattedPhoneNumber.slice(-5);
-  
+
     // Concatenate formatted names and last five digits of phone number
-    const userID = "DOC"+formattedFirstName + formattedLastName + lastFiveDigits;
-  
+    const userID =
+      "DOC" + formattedFirstName + formattedLastName + lastFiveDigits;
+
     return userID;
   }
   const user = new Users({
@@ -34,23 +35,22 @@ export default async function handler(req, res) {
     role: body.role,
     username: createUserID(body.firstname, body.lastname, body.phone),
     password: hashpass,
-
   });
-  
+
   const profile = new Doctorprofiles({
-    
     email: body.email,
     firstname: body.firstname,
     lastname: body.lastname,
     phone: body.phone,
     role: body.role,
-    gender:"",
+    gender: "",
     age: 0,
     speciality: body.speciality,
     currentworkplace: "",
-    profilephoto: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg",
+    // profilephoto: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg"
+    profilephoto: body.profilephoto,
     experience: 0,
-    username: createUserID(body.firstname, body.lastname, body.phone)
+    username: createUserID(body.firstname, body.lastname, body.phone),
   });
   await user.save();
   await profile.save();

@@ -19,6 +19,9 @@ function PatientProfile() {
   const [reports, setReports] = useState();
   const [username, setUsername] = useState();
   const [prescriptions, setPrescriptions] = useState();
+  // const [image, setImage] = useState(null);
+  const [imagefile, setImageFile] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const fetchData = () => {
     const url = `http://localhost:3000/api/getpatientprofile/?email=${emailt}`;
@@ -31,6 +34,7 @@ function PatientProfile() {
       setGender(response.data.gender);
     });
   };
+
   const fetchreports = () => {
     const url = `http://localhost:3000/api/getreport/?username=${profile?.username}`;
     return axios.get(url).then((response) => {
@@ -57,6 +61,19 @@ function PatientProfile() {
   const updateProfile = async (e) => {
     e.preventDefault();
     const email = session.user.email;
+    const formData = new FormData();
+    formData.append("file", imagefile);
+    formData.append("upload_preset", "profilephotos"); // Replace with your Cloudinary upload preset
+    const response = await fetch(
+      "https://api.cloudinary.com/v1_1/dvefqwjbl/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+    const imageUrl = data.secure_url; // Get the uploaded image URL
     const res = await fetch(`http://localhost:3000/api/updatepatientprofile/`, {
       method: "POST",
       headers: {
@@ -69,16 +86,31 @@ function PatientProfile() {
         pincode,
         bloodgroup,
         gender,
+        profilephoto: imageUrl,
       }),
     });
     Router.reload();
   };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setSelectedImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className="m-6 mr-10 ml-10">
       <div className="bg-sky-200 rounded-md pb-4">
+        <input type="file" accept="image/*" onChange={handleImageChange} />
         <Image
           className=" mx-auto pt-2 pb-2 "
-          src={profile?.profilephoto}
+          src={selectedImage || profile?.profilephoto}
           alt="Picture of the author"
           width={200}
           height={200}

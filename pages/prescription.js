@@ -15,13 +15,15 @@ export default function prescription() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState(0);
   const [image, setImage] = useState(null);
+  console.log(image);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   const handleSubmit = async (e) => {

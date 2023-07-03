@@ -8,7 +8,14 @@ export default async function handler(req, res) {
       {
         email: body.email,
       },
-      { address: body.address, pincode: body.pincode, age: body.age, bloodgroup: body.bloodgroup, gender: body.gender }
+      {
+        address: body.address,
+        pincode: body.pincode,
+        age: body.age,
+        bloodgroup: body.bloodgroup,
+        gender: body.gender,
+        profilephoto: body.profilephoto,
+      }
     );
     res.status(200).json({ message: "success" });
   } catch (err) {
