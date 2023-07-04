@@ -179,7 +179,7 @@ export default function report() {
           <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
 
-        <div className=" mt-4 pb-3 mt-10 h-10 w-40 ml-2 border-1 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md">
+        <div className="  pb-3 mt-10 h-10 w-40 ml-2 border-1 font-bold hover:bg-green-900 hover:text-white bg-green-400 mr-40  border-gray-500 rounded-md">
           <button type="submit">Submit</button>
         </div>
       </form>
