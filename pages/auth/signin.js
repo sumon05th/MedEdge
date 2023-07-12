@@ -263,7 +263,7 @@ export default function SignIn({ csrfToken }) {
                               </div>
 
                               <div className="flex items-center justify-between pb-6 text-gray-300">
-                                <p className="mb-0 mr-2">Don't have an account? Register Now.</p>
+                                <p className="mb-0 mr-2">Don't have an account? <button>Register Now.</button></p>
 
 
                               </div>
@@ -381,7 +381,7 @@ export default function SignIn({ csrfToken }) {
                             </div>
 
                             <div className="flex items-center justify-between pb-6">
-                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! Sign In</p>
+                              <p className="mb-0 mr-2 text-gray-300">Already have an Account!<button> Sign In</button>.</p>
 
 
                             </div>
@@ -514,7 +514,7 @@ export default function SignIn({ csrfToken }) {
                             </div>
 
                             <div className="flex items-center justify-between pb-6">
-                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! Sign In.</p>
+                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! <button> Sign In</button>.</p>
 
 
                             </div>
@@ -626,7 +626,7 @@ export default function SignIn({ csrfToken }) {
                             </div>
 
                             <div className="flex items-center justify-between pb-6">
-                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! Sign In</p>
+                              <p className="mb-0 mr-2 text-gray-300">Already have an Account! <button>Sign In</button></p>
 
 
                             </div>
