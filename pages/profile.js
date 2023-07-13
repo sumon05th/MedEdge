@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
 import PatientProfile from "@/components/PatientProfile";
-import axios from "axios";
 import DoctorProfile from "@/components/DoctorProfile";
 import LabProfile from "@/components/LabProfile";
 function profile() {

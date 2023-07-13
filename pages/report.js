@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useSession, getSession } from "next-auth/react";
 
-export default function report() {
+function report() {
   const { data: session } = useSession();
   if (session.user.role !== "lab") {
     return (
@@ -76,7 +76,7 @@ export default function report() {
           <button type="button" className="text-red-600 border border-red-600 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-400 dark:hover:bg-red-500">
             <span className="sr-only">Icon description</span>
             <svg aria-hidden="true" className="w-5 h-5 transform rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
           </button>
         </a>
@@ -164,6 +164,8 @@ export default function report() {
     </div>
   );
 }
+
+export default report;
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
