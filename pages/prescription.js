@@ -4,6 +4,11 @@ import axios from "axios";
 
 function Prescription() {
   const { data: session } = useSession();
+  const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState(0);
+  const [image, setImage] = useState(null);
+  const [processing, setProcessing] = useState(false);
   if (session.user.role !== "doctor") {
     return (
       <div>
@@ -12,11 +17,6 @@ function Prescription() {
     );
   }
 
-  const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
-  const [phone, setPhone] = useState(0);
-  const [image, setImage] = useState(null);
-  const [processing, setProcessing] = useState(false);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);

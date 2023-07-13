@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useSession, getSession } from "next-auth/react";
 
 function Report() {
+  const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");
+  const [image, setImage] = useState(null);
+  const [processing, setProcessing] = useState(false);
   const { data: session } = useSession();
   if (session.user.role !== "lab") {
     return (
@@ -11,10 +15,6 @@ function Report() {
     );
   }
 
-  const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
-  const [image, setImage] = useState(null);
-  const [processing, setProcessing] = useState(false);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
