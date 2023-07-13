@@ -66,18 +66,18 @@ export default function Home() {
       </div>
 
       {/* homepage */}
-      <div class="relative h-screen">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent to-black">
+      <div className="relative h-screen">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent to-black">
           {" "}
           <img className="h-screen w-screen" src={"../images/Home_bg.jpg"} />
         </div>
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent"></div>
-        <div class="absolute top-0 left-0 w-full h-full flex m-10 ">
-          <div class="text-white text-center">
-            <p class="text-2xl font-bold">WELCOME TO MEDEDGE</p>
-            <p class="text-lg p-6">Additional paragraph content</p>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-full flex m-10 ">
+          <div className="text-white text-center">
+            <p className="text-2xl font-bold">WELCOME TO MEDEDGE</p>
+            <p className="text-lg p-6">Additional paragraph content</p>
             <button
-              class="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xl font-medium  leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-gradient-to-r from-gray-500 from-10% via-blue-400 via-30% to-emerald-500 to-90% hover:bg-opacity-10  hover:text-black focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+              className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xl font-medium  leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-gradient-to-r from-gray-500 from-10% via-blue-400 via-30% to-emerald-500 to-90% hover:bg-opacity-10  hover:text-black focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
               onClick={() => signIn()}
             >
               Sign in/Sign Up

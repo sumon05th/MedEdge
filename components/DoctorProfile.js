@@ -181,8 +181,8 @@ function Doctorprofile() {
           </div>
 
           <div className=" grid-flow-col">
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Age:
@@ -190,7 +190,7 @@ function Doctorprofile() {
 
                 <input
                   placeholder="Enter Your Age"
-                  class="peer h-full w-[30%] flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full w-[30%] flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="age"
                   type="number"
                   value={age}
@@ -198,8 +198,8 @@ function Doctorprofile() {
                 />
               </div>
             </div>
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Experience:
@@ -207,7 +207,7 @@ function Doctorprofile() {
 
                 <input
                   placeholder="Experience"
-                  class="peer h-full w-[30%] flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full w-[30%] flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="experience"
                   type="text"
                   value={experience}
@@ -216,8 +216,8 @@ function Doctorprofile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Currentworkplace:
@@ -225,7 +225,7 @@ function Doctorprofile() {
 
                 <input
                   placeholder="Please fill the entry"
-                  class="peer h-full w-[40%] flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full w-[40%] flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="currentworkplace"
                   type="text"
                   value={currentworkplace}
@@ -234,8 +234,8 @@ function Doctorprofile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Speciality:
@@ -243,7 +243,7 @@ function Doctorprofile() {
 
                 <input
                   placeholder="Enter Your Specialisation"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="speciality"
                   type="text"
                   value={speciality}
@@ -252,8 +252,8 @@ function Doctorprofile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Gender:
@@ -261,7 +261,7 @@ function Doctorprofile() {
 
                 <input
                   placeholder="Enter Your Gender"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="gender"
                   type="text"
                   value={gender}
@@ -304,23 +304,23 @@ function Doctorprofile() {
             </button>
           </div>
         </div> */}
-        <div class="fixed z-50 w-36 mt-10 mr-3  h-80 right-4 bottom-1/2 transform translate-y-1/2 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 hover:opacity-70">
-          <div class="grid h-full grid-rows-3 mx-auto">
-            <button data-tooltip-target="tooltip-home" class="inline-flex   flex-col items-center justify-center px-2  hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-blue-600 group"
+        <div className="fixed z-50 w-36 mt-10 mr-3  h-80 right-4 bottom-1/2 transform translate-y-1/2 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 hover:opacity-70">
+          <div className="grid h-full grid-rows-3 mx-auto">
+            <button data-tooltip-target="tooltip-home" className="inline-flex   flex-col items-center justify-center px-2  hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-blue-600 group"
               type="submit"
               onClick={(e) => updateProfile(e)}>
 
               Update Profile
 
             </button>
-            <div id="tooltip-home" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 ">
+            <div id="tooltip-home" role="tooltip" className="absolute z-10 invisible inline-block px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 ">
 
-              <div class="tooltip-arrow" data-popper-arrow></div>
+              <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
 
 
 
-            <button data-tooltip-target="tooltip-wallet" type="button" class="inline-flex pt-5  flex-col items-center justify-center px-2 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-green-600  group"
+            <button data-tooltip-target="tooltip-wallet" type="button" className="inline-flex pt-5  flex-col items-center justify-center px-2 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-green-600  group"
             >
               <a
                 href="http://localhost:3000/prescription">
@@ -329,11 +329,11 @@ function Doctorprofile() {
 
 
             </button>
-            <div id="tooltip-wallet" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-sm font-medium text-white transition-opacity duration-300  bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 ">
+            <div id="tooltip-wallet" role="tooltip" className="absolute z-10 invisible inline-block px-2 py-1 text-sm font-medium text-white transition-opacity duration-300  bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 ">
 
-              <div class="tooltip-arrow" data-popper-arrow></div>
+              <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
-            <button data-tooltip-target="tooltip-settings" type="button" class="inline-flex pt-9 pb-4  flex-col items-center justify-center px-2 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-red-600 group"
+            <button data-tooltip-target="tooltip-settings" type="button" className="inline-flex pt-9 pb-4  flex-col items-center justify-center px-2 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-red-600 group"
               onClick={() =>
                 signOut({
                   callbackUrl: `${window.location.origin}`,
@@ -344,9 +344,9 @@ function Doctorprofile() {
 
 
             </button>
-            <div id="tooltip-settings" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            <div id="tooltip-settings" role="tooltip" className="absolute z-10 invisible inline-block px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
 
-              <div class="tooltip-arrow" data-popper-arrow></div>
+              <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
         </div>

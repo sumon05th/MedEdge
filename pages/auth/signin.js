@@ -423,8 +423,8 @@ export default function SignIn({ csrfToken }) {
                                 Welcome To <span className="text-green-600 font-serif">MedEdge</span>
                               </h4>
                             </div>
-                            <p class="mb-4 text-gray-300">Register and Start </p>
-                            <div class="relative mb-4" data-te-input-wrapper-init>
+                            <p className="mb-4 text-gray-300">Register and Start </p>
+                            <div className="relative mb-4" data-te-input-wrapper-init>
                               <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                               <label className="text-blue-400 ">
                                 Email

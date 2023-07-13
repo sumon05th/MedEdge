@@ -141,8 +141,8 @@ function PatientProfile() {
           </div>
 
           <div className=" grid-flow-col ">
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Age:
@@ -150,7 +150,7 @@ function PatientProfile() {
 
                 <input
                   placeholder="Enter Your Age"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="age"
                   type="number"
                   value={age}
@@ -159,8 +159,8 @@ function PatientProfile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Address:
@@ -168,7 +168,7 @@ function PatientProfile() {
 
                 <input
                   placeholder="Enter Your Address"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 block w-[50%] overflow-hidden resize-both min-h-40px leading-20px font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 block w-[50%] overflow-hidden resize-both min-h-40px leading-20px font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="Enter Your Adress "
                   type="text"
                   value={address}
@@ -177,8 +177,8 @@ function PatientProfile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Pincode:
@@ -186,7 +186,7 @@ function PatientProfile() {
 
                 <input
                   placeholder="Pincode"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="pincode"
                   type="number"
                   value={pincode}
@@ -195,8 +195,8 @@ function PatientProfile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   {" "}
                   Blood Group:
@@ -204,7 +204,7 @@ function PatientProfile() {
 
                 <input
                   placeholder="Enter Blood Group"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="bloodgroup"
                   type="text"
                   value={bloodgroup}
@@ -213,15 +213,15 @@ function PatientProfile() {
               </div>
             </div>
 
-            <div class="relative h-11 mt-1 w-full min-w-[200px]">
-              <div class="flex items-center">
+            <div className="relative h-11 mt-1 w-full min-w-[200px]">
+              <div className="flex items-center">
                 <span className="font-semibold font-mono ml-2 text-lg  leading-tight text-blue-gray-500">
                   Gender:
                 </span>
 
                 <input
                   placeholder="Your Gender"
-                  class="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md  font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
+                  className="peer h-full flex-grow-0 flex-shrink-0 border-b border-blue-gray-200 bg-transparent pt-4 pl-4 ml-5 pb-1.5 font-sans text-md  font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200  focus:border-pink-500 focus:outline-0 disabled:border-2 disabled:bg-blue-gray-50"
                   name="gender"
                   type="text"
                   value={gender}
