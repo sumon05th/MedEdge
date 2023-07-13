@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSession, getSession } from "next-auth/react";
 import axios from "axios";
 
-function prescription() {
+function Prescription() {
   const { data: session } = useSession();
   if (session.user.role !== "doctor") {
     return (
@@ -144,7 +144,7 @@ function prescription() {
             {/* <label className="text-white">Image:</label>
             <input className="ml-2" type="file" accept="image/*" onChange={handleImageChange} /> */}
             <label
-              for="formFileMultiple"
+              htmlFor="formFileMultiple"
               className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
             >Choose Patient Prescription </label
             >
@@ -196,7 +196,7 @@ function prescription() {
     </div>
   );
 }
-export default prescription;
+export default Prescription;
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);

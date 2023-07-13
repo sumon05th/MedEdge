@@ -3,7 +3,7 @@ import { useSession, signOut, getSession } from "next-auth/react";
 import PatientProfile from "@/components/PatientProfile";
 import DoctorProfile from "@/components/DoctorProfile";
 import LabProfile from "@/components/LabProfile";
-function profile() {
+function Profile() {
   const { data: session } = useSession();
   return (
     <div>
@@ -14,7 +14,7 @@ function profile() {
   );
 }
 
-export default profile;
+export default Profile;
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 

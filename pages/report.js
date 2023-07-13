@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 import { useSession, getSession } from "next-auth/react";
 
-function report() {
+function Report() {
   const { data: session } = useSession();
   if (session.user.role !== "lab") {
     return (
@@ -112,7 +111,7 @@ function report() {
             {/* <label className="text-white">Image:</label>
           <input className="ml-2" type="file" accept="image/*" onChange={handleImageChange} /> */}
             <label
-              for="formFileMultiple"
+              htmlFor="formFileMultiple"
               className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
             >Choice Patient's Lab Report </label
             >
@@ -165,7 +164,7 @@ function report() {
   );
 }
 
-export default report;
+export default Report;
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
