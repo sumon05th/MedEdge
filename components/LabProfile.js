@@ -387,7 +387,7 @@ function LabProfile() {
             >
               <a
                 href="http://localhost:3000/report">
-                Upload Patient's Report
+                Upload Patient&apos;s Report
               </a>
 
 

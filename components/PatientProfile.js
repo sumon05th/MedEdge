@@ -261,7 +261,7 @@ function PatientProfile() {
           <h3 className=" flex  font-bold ">Patient Lab Reports</h3>
 
           {reports?.map((report) => (
-            <div>
+            <div key={report.imageUrl}>
               <p className="font-mono font-semibold">
                 <span className="font-bold text-gray-500">Lab:</span>
               </p>
@@ -282,7 +282,7 @@ function PatientProfile() {
         <div className="ml-6 ">
           <h3 className=" font-bold ">Patient prescription</h3>
           {prescriptions?.map((prescription) => (
-            <div className="mt-4">
+            <div className="mt-4" key={prescription.imageUrl}>
               <p className="font-mono font-semibold">
                 <span className="font-bold text-gray-500">Doctor:</span>
                 {prescription.doctorName}
