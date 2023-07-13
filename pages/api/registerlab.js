@@ -1,5 +1,5 @@
-import Users from "../models/labUserModel";
-import Labprofiles from "../models/labProfileModel";
+import Users from "../../models/labUserModel";
+import Labprofiles from "../../models/labProfileModel";
 import bcrypt from "bcrypt";
 export default async function handler(req, res) {
   const body = req.body;
@@ -21,21 +21,21 @@ export default async function handler(req, res) {
     password: hashpass,
   });
 
-  function createUserID(name,  phoneNumber) {
+  function createUserID(name, phoneNumber) {
     // Get the first two characters of the names and capitalize them
     const formattedName = name.slice(0, 2).toUpperCase();
-   
-  
+
+
     // Get the last five digits of the phone number
     const formattedPhoneNumber = phoneNumber.replace(/\D/g, '');
     const lastFiveDigits = formattedPhoneNumber.slice(-5);
-  
+
     // Concatenate formatted name, lab type, and last five digits of the phone number
     const userID = "LAB" + formattedName + lastFiveDigits;
-  
+
     return userID;
   }
-  
+
   const profile = new Labprofiles({
     email: body.email,
     name: body.name,
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     role: body.role,
 
     address: "",
-    username: createUserID(body.name,  body.phone),
+    username: createUserID(body.name, body.phone),
     pincode: 0,
   });
   await user.save();

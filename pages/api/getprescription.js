@@ -1,4 +1,4 @@
-import Prescriptions from "../models/prescriptionSchema";
+import Prescriptions from "../../models/prescriptionSchema";
 import connectDB from "./auth/lib/connectDB";
 export default async function getUser(req, res) {
   try {

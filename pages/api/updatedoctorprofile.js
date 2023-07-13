@@ -1,4 +1,4 @@
-import Doctorprofile from "../models/doctorProfileModel";
+import Doctorprofile from "../../models/doctorProfileModel";
 import connectDB from "./auth/lib/connectDB";
 export default async function handler(req, res) {
   try {
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       {
         email: body.email,
       },
-      { address: body.address, pincode: body.pincode, age: body.age, bloodgroup: body.bloodgroup, gender: body.gender,doctorid: body.doctorid, speciality: body.speciality, experience: body.experience, currentworkplace: body.currentworkplace ,profilephoto: body.profilephoto}
+      { address: body.address, pincode: body.pincode, age: body.age, bloodgroup: body.bloodgroup, gender: body.gender, doctorid: body.doctorid, speciality: body.speciality, experience: body.experience, currentworkplace: body.currentworkplace, profilephoto: body.profilephoto }
     );
     res.status(200).json({ message: "success" });
   } catch (err) {

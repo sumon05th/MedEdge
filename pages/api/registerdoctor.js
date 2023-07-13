@@ -1,5 +1,5 @@
-import Users from "../models/doctorUserModel";
-import Doctorprofiles from "../models/doctorProfileModel";
+import Users from "../../models/doctorUserModel";
+import Doctorprofiles from "../../models/doctorProfileModel";
 import bcrypt from "bcrypt";
 export default async function handler(req, res) {
   const body = req.body;

@@ -1,4 +1,4 @@
-import Patientprofile from "../models/patientProfileModel";
+import Patientprofile from "../../models/patientProfileModel";
 import connectDB from "./auth/lib/connectDB";
 export default async function handler(req, res) {
   try {

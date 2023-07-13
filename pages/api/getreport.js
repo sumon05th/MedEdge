@@ -1,4 +1,4 @@
-import Reports from "../models/reportSchema";
+import Reports from "../../models/reportSchema";
 import connectDB from "./auth/lib/connectDB";
 export default async function getUser(req, res) {
   try {

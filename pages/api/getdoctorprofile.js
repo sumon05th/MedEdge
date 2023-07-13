@@ -1,4 +1,4 @@
-import Doctorprofile from "../models/doctorProfileModel";
+import Doctorprofile from "../../models/doctorProfileModel";
 import connectDB from "./auth/lib/connectDB";
 export default async function getUser(req, res) {
   try {

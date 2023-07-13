@@ -1,6 +1,6 @@
-import Reports from "../models/reportSchema";
+import Reports from "../../models/reportSchema";
 import connectDB from "./auth/lib/connectDB";
-import Labprofile from "../models/labProfileModel";
+import Labprofile from "../../models/labProfileModel";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     await connectDB();

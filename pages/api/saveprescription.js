@@ -1,4 +1,4 @@
-import Prescriptions from "../models/prescriptionSchema";
+import Prescriptions from "../../models/prescriptionSchema";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {

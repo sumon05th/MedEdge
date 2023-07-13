@@ -1,4 +1,4 @@
-import Labprofile from "../models/labProfileModel";
+import Labprofile from "../../models/labProfileModel";
 import connectDB from "./auth/lib/connectDB";
 export default async function getUser(req, res) {
   try {

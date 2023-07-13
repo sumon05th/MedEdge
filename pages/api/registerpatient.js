@@ -1,5 +1,5 @@
-import Users from "../models/patientUserModel";
-import Patientprofiles from "../models/patientProfileModel";
+import Users from "../../models/patientUserModel";
+import Patientprofiles from "../../models/patientProfileModel";
 import bcrypt from "bcrypt";
 export default async function handler(req, res) {
   const body = req.body;
@@ -16,14 +16,14 @@ export default async function handler(req, res) {
     // Get the first two characters of the names and capitalize them
     const formattedFirstName = firstName.slice(0, 2).toUpperCase();
     const formattedLastName = lastName.slice(0, 2).toUpperCase();
-  
+
     // Get the last five digits of the phone number
     const formattedPhoneNumber = phoneNumber.replace(/\D/g, '');
     const lastFiveDigits = formattedPhoneNumber.slice(-5);
-  
+
     // Concatenate formatted names and last five digits of phone number
-    const userID = "PAT"+formattedFirstName + formattedLastName + lastFiveDigits;
-  
+    const userID = "PAT" + formattedFirstName + formattedLastName + lastFiveDigits;
+
     return userID;
   }
 
